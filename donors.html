@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donors</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #D7F3F7, #C0E0FF);
+            font-family: "Poppins", sans-serif;
+        }
+
+        .donor-card {
+            width: 330px;
+            margin: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s ease;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .donor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        }
+
+        .donor-header {
+            background: linear-gradient(135deg, #0284c7, #0ea5e9);
+            color: white;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .donor-body {
+            padding: 18px;
+        }
+
+        .donor-body p {
+            margin: 8px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 38px !important;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0284c7, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- BACK NAVBAR (Blue-Teal Theme) -->
+<nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #0284c7, #0ea5e9);">
+    <div class="container-fluid">
+        <a href="/animals_view/" class="btn btn-light fw-bold px-3 py-1" style="border-radius: 10px;">← Back</a>
+        <span class="navbar-brand mx-auto fw-bold text-white">Zoo Management</span>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">DONATED BY</h2>
+
+    <div class="d-flex flex-wrap justify-content-center">
+
+        {% for d in donors %}
+        <div class="donor-card">
+
+            <div class="donor-header">
+                {{ d.name }}
+            </div>
+
+            <div class="donor-body">
+                <p><strong>Type:</strong> {{ d.Type }}</p>
+                <p><strong>Address:</strong> {{ d.address }}</p>
+                <p><strong>Phone:</strong> {{ d.phone_number }}</p>
+                <p><strong>Reason:</strong> {{ d.reason_for_donation }}</p>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
